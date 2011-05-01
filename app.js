@@ -1,17 +1,24 @@
 
+// enable and configure loader
 Ext.Loader.setConfig({
 	 enabled:true
 	,paths:{
-		Ext:'ext/src'
+		 Ext:'ext/src'
+		,My:'app'
 	}
 });
+
+// require dependencies
+Ext.require([
+	'My.view.Viewport'
+]);
 
 Ext.application({
 	 name:'My'
 	,appFolder:'app'
 	,autoCreateViewport:false
 
-	,controllers:[]
+	,controllers:['Users']
 	
 
 	,launch:function() {
