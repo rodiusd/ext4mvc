@@ -3,9 +3,11 @@ Ext.define('My.controller.Users', {
 	 
 	 extend:'Ext.app.Controller'
 	 
+	,models:[
+		'User'
+	]
+	 
 	,init:function(app) {
-		
-//		console.log('Init Users Controller', app);
 		
 		this.control({
 			myviewport:{

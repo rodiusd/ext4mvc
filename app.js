@@ -10,7 +10,8 @@ Ext.Loader.setConfig({
 
 // require dependencies
 Ext.require([
-	'My.view.Viewport'
+	 'My.view.Viewport'
+	,'Ext.data.proxy.LocalStorage'
 ]);
 
 Ext.application({
