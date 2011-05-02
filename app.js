@@ -14,6 +14,7 @@ Ext.require([
 	,'Ext.data.proxy.LocalStorage'
 	,'Ext.selection.CellModel'
 	,'Ext.form.field.Text'
+	,'Ext.grid.plugin.CellEditing'
 ]);
 
 Ext.application({
@@ -33,7 +34,6 @@ Ext.application({
 		
 		this.viewport.show();
 		
-		console.log('Launching MVC Applicaton');
 	}
 });
 
