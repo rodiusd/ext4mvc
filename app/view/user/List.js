@@ -6,6 +6,12 @@ Ext.define('My.view.user.List', {
 	
 	,initComponent:function() {
 		
+		// create an instance of cell editing plugin
+		this.cellEditing = 	Ext.create('Ext.grid.plugin.CellEditing', {
+			clicksToEdit:2
+		});
+		
+		// prepare config object
 		var config = {
 			columns:[{
 				 header:'First Name'
@@ -32,18 +38,35 @@ Ext.define('My.view.user.List', {
 				,dataIndex:'fullName'
 				,flex:1}
 			] // eo columns
-			,plugins:[
-				Ext.create('Ext.grid.plugin.CellEditing', {
-					clicksToEdit:1
-				})
-			]
-			,selType:'cellmodel'
+			
+			,plugins:[this.cellEditing]
+			
+			,selModel:{
+				 selType:'rowmodel'
+				,allowDeselect:true
+				,mode:'MULTI'
+			}
+			
+			,bbar:[{
+				 text:'Add'
+				,operation:'add'
+			},{
+				 text:'Delete'
+				,operation:'delete'
+			},{
+				 text:'Refresh'
+				,operation:'refresh'
+			}]
 		};
 		
+		// apply config object
 		Ext.apply(this, config);
 		
+		// call parent initComponent
 		this.callParent(arguments);
-	}
-});
+		
+	} // eo functin initComponent
+	
+}); // eo define
 
 // eof

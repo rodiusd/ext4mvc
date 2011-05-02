@@ -12,21 +12,48 @@ Ext.define('My.controller.Users', {
 	,views:[
 		'user.List'
 	]
+	,refs:[{
+		 ref:'UserList'
+		,selector:'userlist'
+	}]
+	
 	 
 	,init:function(app) {
 		
 		this.control({
-			myviewport:{
-				render:this.onViewportRender
+			'userlist button':{
+				click:this.onButtonClick
 			}
 		});
 		
 	}
 	
-	,onViewportRender:function(viewport, ha) {
-		console.log('Viewport rendered', viewport, ha);
+	,onButtonClick:function(btn, e) {
+		
+		// get the reference to Users Store
+		var store = this.getUsersStore();
+		
+		switch(btn.operation) {
+			case 'refresh':
+				store.load();
+			break;
+			
+			case 'add':
+				store.addBlankRecord();
+			break;
+			
+			case 'delete':
+				var sm = this.getUserList().getSelectionModel();
+				var records = sm.getSelection();
+				sm.deselectAll();
+				store.remove(records);
+			break;
+			
+			default:
+				console.warn('Button misconfiguration. Add "operation" property.')
+			break;
+		}
 	}
-	
 });
 
 // eof
