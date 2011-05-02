@@ -7,11 +7,37 @@ Ext.define('My.view.user.List', {
 	,initComponent:function() {
 		
 		var config = {
-			columns:[
-				 {header:'First Name', dataIndex:'firstName', width:80}
-				,{header:'Last Name', dataIndex:'lastName', width:120}
-				,{header:'Full Name', dataIndex:'fullName', flex:1}
+			columns:[{
+				 header:'First Name'
+				,dataIndex:'firstName'
+				,width:80
+				,field:{
+					  xtype:'textfield'
+					 ,allowBlank:false
+					 ,selectOnFocus:true
+					 ,minLength:2
+				}
+			},{
+				 header:'Last Name'
+				,dataIndex:'lastName'
+				,width:120
+				,field:{
+					  xtype:'textfield'
+					 ,allowBlank:false
+					 ,selectOnFocus:true
+					 ,minLength:2
+				}
+			},{
+				 header:'Full Name'
+				,dataIndex:'fullName'
+				,flex:1}
+			] // eo columns
+			,plugins:[
+				Ext.create('Ext.grid.plugin.CellEditing', {
+					clicksToEdit:1
+				})
 			]
+			,selType:'cellmodel'
 		};
 		
 		Ext.apply(this, config);

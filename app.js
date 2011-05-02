@@ -12,6 +12,8 @@ Ext.Loader.setConfig({
 Ext.require([
 	 'My.view.Viewport'
 	,'Ext.data.proxy.LocalStorage'
+	,'Ext.selection.CellModel'
+	,'Ext.form.field.Text'
 ]);
 
 Ext.application({

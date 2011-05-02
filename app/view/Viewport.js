@@ -7,7 +7,8 @@ Ext.define('My.view.Viewport', {
 	,layout:'fit'
 	,border:false
 	,items:[{
-		xtype:'userlist'
+		 xtype:'userlist'
+		,itemId:'myUserList'
 	}]
 	
 });
