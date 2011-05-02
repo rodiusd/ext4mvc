@@ -4,7 +4,12 @@ Ext.define('My.view.Viewport', {
 	,alias:'widget.myviewport'
 	,closable:false
 	,title:'Ex4 MVC Example Viewport'
-	,html:'This is the application viewport'
+	,layout:'fit'
+	,border:false
+	,items:[{
+		xtype:'userlist'
+	}]
+	
 });
 
 // eof

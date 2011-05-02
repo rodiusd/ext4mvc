@@ -6,6 +6,12 @@ Ext.define('My.controller.Users', {
 	,models:[
 		'User'
 	]
+	,stores:[
+		'Users'
+	]
+	,views:[
+		'user.List'
+	]
 	 
 	,init:function(app) {
 		
