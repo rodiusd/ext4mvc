@@ -15,6 +15,7 @@ Ext.require([
 	,'Ext.selection.CellModel'
 	,'Ext.form.field.Text'
 	,'Ext.grid.plugin.CellEditing'
+	,'Ext.state.CookieProvider'
 ]);
 
 Ext.application({
@@ -26,9 +27,11 @@ Ext.application({
 	
 
 	,launch:function() {
+		Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 		this.viewport = Ext.create('My.view.Viewport', {
 			 width:400
 			,height:300
+			,stateId:'myWindow'
 		});
 		window[this.name].app = this;
 		
